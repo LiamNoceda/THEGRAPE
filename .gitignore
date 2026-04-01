@@ -1,0 +1,22 @@
+# Зависимости (самое тяжелое)
+node_modules/
+jspm_packages/
+
+# Секреты (самое важное)
+.env
+.env.local
+*.pem
+
+# Папки сборки
+dist/
+build/
+
+# Мусор системы (специально для Mac)
+.DS_Store
+Thumbs.db
+
+# Логи ошибок
+npm-debug.log*
+yarn-error.log*
+
+frontend/src/list

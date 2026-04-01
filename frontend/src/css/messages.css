@@ -1,0 +1,96 @@
+/* messages.css */
+
+.messenger-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 2px;
+    height: 70vh; /* Ограничиваем высоту чата */
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 40px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Список чатов */
+.chat-list {
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    overflow-y: auto;
+}
+
+.chat-preview {
+    padding: 20px;
+    display: flex;
+    gap: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.chat-preview.active, .chat-preview:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.mini-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: #004a8d;
+}
+
+.preview-info h3 { font-size: 0.8rem; font-weight: 400; margin-bottom: 5px; }
+.preview-info p { font-size: 0.7rem; color: rgba(255,255,255,0.4); }
+
+/* Окно сообщений */
+.chat-window {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.messages-area {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+}
+
+.msg {
+    max-width: 70%;
+    padding: 12px 18px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+.msg.incoming {
+    align-self: flex-start;
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom-left-radius: 2px;
+}
+
+.msg.outgoing {
+    align-self: flex-end;
+    background: rgba(0, 122, 255, 0.2); /* Холодный синий акцент */
+    border-bottom-right-radius: 2px;
+}
+
+/* Поле ввода */
+.input-area {
+    padding: 20px;
+}
+
+.input-area input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px 25px;
+    border-radius: 30px;
+    color: #fff;
+    outline: none;
+    transition: 0.4s;
+}
+
+.input-area input:focus {
+    border-color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+}

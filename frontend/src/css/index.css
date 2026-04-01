@@ -1,0 +1,130 @@
+/* 1. БЕЗДНА: Оптимизированный фон */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000814;
+    background-image: radial-gradient(circle at center, #001f3f 0%, #000814 100%);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+/* 2. ПАРЯЩИЙ КОНТЕЙНЕР */
+#auth-container {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+    /* Включаем GPU ускорение для анимации */
+    will-change: transform;
+    animation: float 6s infinite ease-in-out;
+}
+
+/* 3. НАЗВАНИЕ */
+h1 {
+    font-weight: 200;
+    font-size: 0.8rem;
+    letter-spacing: 0.8rem;
+    text-transform: uppercase;
+    margin-bottom: 5rem;
+    color: #ffffff;
+    opacity: 0.7;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+/* 4. ФОРМА */
+#login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+/* 5. ИНПУТЫ: Заменяем 'all' на конкретные свойства */
+#login-form input {
+    width: 100%;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 55px;
+    padding: 12px 0;
+    color: #ffffff;
+    font-size: 1rem;
+    outline: none;
+    text-align: center;
+    letter-spacing: 1px;
+    /* Оптимизированный переход (без letter-spacing) */
+    transition: transform 0.4s cubic-bezier(0.2, 1, 0.2, 1), 
+                background-color 0.4s ease, 
+                box-shadow 0.4s ease;
+}
+
+/* Убрал анимацию letter-spacing, так как она вызывает фризы (Reflow) */
+#login-form input:focus {
+    background: #ffffff;
+    color: #000814;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+    transform: scale(1.03); 
+}
+
+/* Убрал width: 400px у плейсхолдера, это ломало отрисовку */
+#login-form input::placeholder {
+    color: #ffffff;
+    font-size: 0.5rem;
+    font-weight: 200;
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+    transition: opacity 0.3s ease;
+}
+
+#login-form input:focus::placeholder {
+    opacity: 0;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    margin: 10px 0;
+}
+
+/* 6. КНОПКА */
+#reg-btn {
+    display: flex;
+    margin: 0 auto;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+    width: 80px;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+}
+
+#reg-btn:hover {
+    background: #ffffff;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
+}
+
+#reg-btn img {
+    width: 30px; 
+    height: auto;
+    pointer-events: none;
+    /* Плавность для фильтров */
+    transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+#reg-btn:hover img {
+    filter: brightness(0) invert(1);
+    /* Убрал двойной drop-shadow, он вешает слабые браузеры */
+    transform: scale(1.1);
+}
+
+/* Эффект невесомости через translate3d для включения GPU */
+@keyframes float {
+    0%, 100% { transform: translate3d(0, 0, 0); }
+    50% { transform: translate3d(0, -10px, 0); }
+}

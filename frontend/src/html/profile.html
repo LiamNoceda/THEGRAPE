@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>THEGRAPE | SpaceProf</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/profile.css">
+        <script type="module" src="../js/profile.js"></script>
+    </head>
+    <body>
+        <div class="stars-layer"></div>
+        <nav class="side-raile">
+            <a href="profile.html">SpaceProf</a>
+            <a href="messages.html">MessOut</a>
+            <a href="friends.html">LocFriends</a>
+            <div class="spacer"></div>
+            <a href="../../index.html">XOut</a>
+        </nav>
+        <main class="viewport">
+            <section class="page-header">
+                <h1>SpaceProf</h1>
+            </section>
+             <!-- Сюда JS вставит данные из Rust -->
+    <div class="content-grid" id="profile-data">
+        <!-- Блок профиля -->
+        <div class="user-core">
+            <div class="core-orbit">
+                <div class="user-avatar" id="avatar"></div>
+            </div>
+            <div class="user-meta">
+                <h2 id="username">Loading Identity...</h2>
+                <p id="bio">Connecting to the grid...</p>
+            </div>
+        </div>
+
+        <!-- Лента сообщений/постов -->
+        <div class="space-feed" id="feed">
+            <!-- Посты будут генерироваться здесь -->
+        </div>
+    </div>
+        </main>
+        <aside class="info-panel">
+            <div class="status">Online/Ofline</div>
+            <div class="mini-search"><input type="text" placeholder="Find..."></div>
+        </aside>
+    </body>
+</html>
