@@ -33,3 +33,104 @@
     border-radius: 0 20px 20px 0;
     transition: 0.4s;
 }
+
+/* ИНТЕГРАЦИЯ ФОРМЫ В USER-CORE */
+
+.user-meta {
+    flex: 1; /* Чтобы мета-данные занимали всё свободное место */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#edit-mode {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    animation: slideIn 0.4s ease-out;
+}
+
+/* Стилизация полей ввода */
+.space-input, .space-area {
+    background: rgba(0, 0, 0, 0.3); /* Темнее фона для контраста */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: var(--accent);
+    padding: 10px 15px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border 0.3s;
+}
+
+.space-input:focus, .space-area:focus {
+    border-color: rgba(0, 122, 255, 0.5); /* В цвет аватара */
+}
+
+/* Кнопки в стиле твоей навигации */
+.edit-btn, .save-btn, .cancel-btn {
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.5);
+    padding: 6px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    margin-top: 10px;
+    align-self: flex-start;
+    transition: 0.3s;
+}
+
+.edit-btn:hover, .save-btn:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.cancel-btn:hover {
+    color: #ff4d4d;
+    border-color: rgba(255, 77, 77, 0.3);
+}
+
+.edit-actions {
+    display: flex;
+    gap: 10px;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-10px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.edit-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Стилизация кнопки выбора файла */
+.file-upload {
+    display: inline-block;
+    padding: 8px 15px;
+    border: 1px dashed var(--dim);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.7rem;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.file-upload:hover {
+    border-color: var(--accent);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.file-upload input[type="file"] {
+    display: none; /* Прячем страшный стандартный инпут */
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+    display: none; /* Прячем стрелочки у года */
+}

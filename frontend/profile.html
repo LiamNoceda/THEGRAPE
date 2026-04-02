@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>THEGRAPE | SpaceProf</title>
+        <link rel="stylesheet" href="src/css/style.css">
+        <link rel="stylesheet" href="src/css/profile.css">
+    </head>
+    <body>
+        <div class="stars-layer"></div>
+        <nav class="side-raile">
+            <a href="profile.html">SpaceProf</a>
+            <a href="messages.html">MessOut</a>
+            <a href="friends.html">LocFriends</a>
+            <div class="spacer"></div>
+            <a href="index.html">XOut</a>
+        </nav>
+        <main class="viewport">
+            <section class="page-header">
+                <h1>SpaceProf</h1>
+            </section>
+             <!-- Сюда JS вставит данные из Rust -->
+    <div class="content-grid" id="profile-data">
+        <!-- Блок профиля -->
+        <div class="user-core">
+            <div class="core-orbit">
+                <div class="user-avatar" id="avatar"></div>
+            </div>
+
+            <!-- Метаданные пользователя -->
+            <div class="user-meta">
+                <!-- Режим просмотра -->
+                <div id="view-mode">
+                    <h2 id="username">User_8234</h2>
+                    <p id="user-year" style="opacity: 0.5; font-size: 0.8rem;">Birth Year: ---</p>
+                    <p id="bio">Exploring the grid...</p>
+                    <button class="edit-btn" onclick="toggleEdit(true)">Modify Identity</button>
+                </div>
+
+                <!-- Режим редактирования -->
+                <div id="edit-mode" style="display: none;" class="edit-container">
+                    <input type="text" id="input-username" class="space-input" placeholder="Full Name">
+                    <input type="number" id="input-year" class="space-input" placeholder="Birth Year (e.g. 2000)" min="1900" max="2024">
+                    <textarea id="input-bio" class="space-area" placeholder="Transmission bio..."></textarea>
+                    
+                    <!-- Загрузка фото -->
+                    <label class="file-upload">
+                        <span>Change Avatar</span>
+                        <input type="file" id="input-avatar" accept="image/*" onchange="previewImage(event)">
+                    </label>
+
+                    <div class="edit-actions">
+                        <button class="save-btn" onclick="saveProfile()">Sync</button>
+                        <button class="cancel-btn" onclick="toggleEdit(false)">Abort</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Лента сообщений/постов -->
+        <div class="space-feed" id="feed">
+            <!-- Посты будут генерироваться здесь -->
+        </div>
+    </div>
+        </main>
+        <aside class="info-panel">
+            <div class="status">Online/Ofline</div>
+            <div class="mini-search"><input type="text" placeholder="Find..."></div>
+        </aside>
+        <script src="src/js/scriptprof.js"></script>
+    </body>
+</html>

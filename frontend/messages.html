@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>THEGRAPE | MessOut</title>
+        <link rel="stylesheet" href="src/css/style.css">
+        <link rel="stylesheet" href="src/css/messages.css">
+    </head>
+    <body>
+        <div class="stars-layer"></div>
+        <nav class="side-raile">
+            <a href="profile.html">SpaceProf</a>
+            <a href="messages.html">MessOut</a>
+            <a href="friends.html">LocFriends</a>
+            <div class="spacer"></div>
+            <a href="index.html">XOut</a>
+        </nav>
+        <main class="viewport">
+            <section class="page-header">
+                <h1>MessOut</h1>
+            </section>
+            <div class="messenger-layout">
+        <!-- Список диалогов подгрузится из БД -->
+        <aside class="chat-list" id="chats-container"></aside>
+
+        <!-- Окно переписки -->
+        <div class="chat-window">
+            <!-- Сюда JS будет вставлять сообщения в реальном времени -->
+            <div class="messages-area" id="message-flow"></div>
+            
+            <!-- Форма отправки (Трансмиттер) -->
+            <form class="input-area" id="chat-form">
+                <input type="text" id="message-input" placeholder="Send signal..." autocomplete="off">
+            </form>
+        </div>
+    </div>
+        </main>
+        <aside class="info-panel">
+            <div class="status">Online/Ofline</div>
+            <div class="mini-search"><input type="text" placeholder="Find..."></div>
+        </aside>
+    </body>
+</html>
