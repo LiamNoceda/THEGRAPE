@@ -68,7 +68,7 @@ class ProfileManager {
     }
 
     public previewImage(event: any): void {
-        const file = event.target.files[0]; // Исправлено: берем ПЕРВЫЙ файл
+        const file = event.target.files[0];
         if (file && this.avatarCircle) {
             const reader = new FileReader();
             reader.onload = () => {
