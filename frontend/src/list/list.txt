@@ -1,0 +1,14 @@
+Техническое задание для ИИ (Проект THEGRAPE)
+Суть проекта: Соцсеть на JavaScript (Node.js + Express). Фронтенд на чистом HTML/CSS/JS.
+Архитектура Backend:
+Точка входа: backend/server.js (Express, раздача статики из /frontend).
+Маршрутизация: backend/router.js (использует префикс /api).
+Логика (Handlers): Папка backend/handlers/ со скриптами auth.js, profile.js, friends.js, messages.js.
+База данных: Временное хранение в backend/db/users.json (в будущем переход на Cloudflare D1).
+Архитектура Frontend:
+Структура: Корень содержит index.html, папка src/ содержит css/, js/, html/ (остальные страницы), assets/.
+API-слой: Папка frontend/src/js/api/ с файлами-курьерами, которые делают fetch к бэкенду.
+Логика страниц: В папке frontend/src/js/ лежат скрипты, управляющие DOM (отрисовкой данных).
+Связь: Скрипты подключаются как type="module".
+Текущий статус: Настроена авто-регистрация (если юзера нет в JSON — создаем, если есть — проверяем пароль). После входа данные сохраняются в localStorage.setItem('currentUser', username).
+Задача: Продолжить разработку страниц профиля, друзей и сообщений по этой модульной схеме.
