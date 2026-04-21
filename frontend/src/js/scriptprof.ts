@@ -14,7 +14,6 @@ class ProfileManager {
     private avatarCircle!: HTMLElement;
 
     constructor() {
-        // Ждем полной загрузки DOM, чтобы элементы гарантированно были на месте
         if (document.readyState === 'complete') {
             this.init();
         } else {
@@ -24,7 +23,6 @@ class ProfileManager {
 
     private init() {
         try {
-            // Находим все элементы по ID из твоего HTML
             this.viewMode = document.getElementById('view-mode') as HTMLElement;
             this.editMode = document.getElementById('edit-mode') as HTMLElement;
             this.usernameDisplay = document.getElementById('username') as HTMLElement;
@@ -32,7 +30,6 @@ class ProfileManager {
             this.yearDisplay = document.getElementById('user-year') as HTMLElement;
             this.avatarCircle = document.getElementById('avatar') as HTMLElement;
 
-            // Привязываем функции к глобальному объекту window, чтобы HTML их видел
             (window as any).toggleEdit = (s: boolean) => this.toggleEdit(s);
             (window as any).saveProfile = () => this.saveProfile();
             (window as any).previewImage = (e: any) => this.previewImage(e);
@@ -51,7 +48,6 @@ class ProfileManager {
             const inputYear = document.getElementById('input-year') as HTMLInputElement;
             const inputBio = document.getElementById('input-bio') as HTMLTextAreaElement;
 
-            // Подставляем текущие значения в поля ввода
             if (inputName) inputName.value = this.usernameDisplay.innerText;
             if (inputBio) inputBio.value = this.bioDisplay.innerText;
             if (inputYear) {
@@ -87,17 +83,14 @@ class ProfileManager {
         const newYear = inputYear.value || "---";
         const newBio = inputBio.value || "No transmission data...";
 
-        // Мгновенно обновляем интерфейс
         this.usernameDisplay.innerText = newName;
         this.yearDisplay.innerText = `Birth Year: ${newYear}`;
         this.bioDisplay.innerText = newBio;
 
-        // Здесь в будущем будет fetch() к Rust
         console.log("Profile Synced Locally:", { newName, newYear, newBio });
 
         this.toggleEdit(false);
     }
 }
 
-// Запуск
 new ProfileManager();
