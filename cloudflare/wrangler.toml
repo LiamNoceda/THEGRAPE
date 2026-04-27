@@ -1,0 +1,20 @@
+name = "thegrape-worker"
+main = "./worker.ts"
+compatibility_date = "2026-01-01"
+
+# Your Cloudflare Account ID (replace with your account id before publishing)
+account_id = ""
+
+workers_dev = true
+
+[build]
+
+[vars]
+  # put any required env vars here (e.g. SENTRY_DSN = "...")
+
+[[d1_databases]]
+binding = "D1_DB"
+database_name = "thegrape_d1"
+
+# Example: to publish to a custom route, add a routes entry (uncomment and set your domain):
+# routes = ["https://api.example.com/*"]

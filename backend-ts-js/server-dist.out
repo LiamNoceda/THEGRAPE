@@ -1,0 +1,5 @@
+
+> backend-ts-js@1.0.0 start
+> node dist/server.js
+
+Server THEGRAPE running: http://localhost:3000

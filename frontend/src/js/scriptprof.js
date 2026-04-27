@@ -31,6 +31,8 @@ class ProfileManager {
             window.saveProfile = () => this.saveProfile();
             window.previewImage = (e) => this.previewImage(e);
             console.log("SpaceProf System: Online");
+            // Load profile from backend if available
+            this.loadProfileFromServer();
         }
         catch (err) {
             console.error("SpaceProf System: Initialization failed. Check HTML IDs.");
@@ -82,10 +84,38 @@ class ProfileManager {
             this.usernameDisplay.innerText = newName;
             this.yearDisplay.innerText = `Birth Year: ${newYear}`;
             this.bioDisplay.innerText = newBio;
-            // Здесь в будущем будет fetch() к Rust
-            console.log("Profile Synced Locally:", { newName, newYear, newBio });
+            // Отправляем обновления на backend
+            const userId = localStorage.getItem('currentUserId');
+            if (userId) {
+                fetch(`/api/user/${userId}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username: newName, year: newYear === '---' ? null : Number(newYear), bio: newBio })
+                }).then(r => r.json()).then(data => {
+                    console.log('Profile saved on server', data);
+                }).catch(err => console.error('Save failed', err));
+            } else {
+                console.log('Profile Synced Locally:', { newName, newYear, newBio });
+            }
             this.toggleEdit(false);
         });
+    }
+
+    loadProfileFromServer() {
+        const userId = localStorage.getItem('currentUserId');
+        if (!userId) return;
+
+        fetch(`/api/user/${userId}`)
+            .then(r => r.json())
+            .then(data => {
+                if (data && data.success && data.user) {
+                    const u = data.user;
+                    if (this.usernameDisplay) this.usernameDisplay.innerText = u.username || 'Anonymous';
+                    if (this.bioDisplay) this.bioDisplay.innerText = u.bio || '';
+                    if (this.yearDisplay) this.yearDisplay.innerText = `Birth Year: ${u.year || '---'}`;
+                    if (this.avatarCircle && u.avatar) this.avatarCircle.style.backgroundImage = `url(${u.avatar})`;
+                }
+            }).catch(err => console.error('Profile load failed', err));
     }
 }
 // Запуск
