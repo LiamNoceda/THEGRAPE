@@ -1,6 +1,6 @@
 import express, { Request, Response } from 'express';
 import path from 'path';
-import apiRouter from './router';
+import apiRouter from './router.js';
 
 const app = express();
 const PORT = 3000;

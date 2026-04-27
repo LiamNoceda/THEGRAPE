@@ -1,0 +1,20 @@
+
+> backend-ts-js@1.0.0 start
+> ts-node --esm server.ts
+
+(node:73324) [DEP0180] DeprecationWarning: fs.Stats constructor is deprecated.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/Users/a0000/Grape/backend-ts-js/router.js' imported from /Users/a0000/Grape/backend-ts-js/server.ts
+    at finalizeResolution (node:internal/modules/esm/resolve:271:11)
+    at moduleResolve (node:internal/modules/esm/resolve:861:10)
+    at defaultResolve (node:internal/modules/esm/resolve:988:11)
+    at nextResolve (node:internal/modules/esm/hooks:769:28)
+    at resolve (/Users/a0000/Grape/backend-ts-js/node_modules/ts-node/dist/child/child-loader.js:15:125)
+    at nextResolve (node:internal/modules/esm/hooks:769:28)
+    at AsyncLoaderHooksOnLoaderHookWorker.resolve (node:internal/modules/esm/hooks:265:30)
+    at MessagePort.handleMessage (node:internal/modules/esm/worker:251:24)
+    at [nodejs.internal.kHybridDispatch] (node:internal/event_target:843:20)
+    at MessagePort.<anonymous> (node:internal/per_context/messageport:23:28) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///Users/a0000/Grape/backend-ts-js/router.js'
+}

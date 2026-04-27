@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import * as profileService from "../services/profile.service";
+import * as profileService from "../services/profile.service.js";
 
 export const getUserData = (req: Request, res: Response) => {
     const rawId = req.params.id;

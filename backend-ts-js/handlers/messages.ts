@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import * as messagesService from "../services/messages.service";
+import * as messagesService from "../services/messages.service.js";
 
 // =========================
 // CHAT HISTORY

@@ -18,8 +18,9 @@ loginForm.onsubmit = async (e) => {
         // Сохраняем имя, чтобы профиль знал, кого рисовать
         localStorage.setItem('currentUser', userData.username);
         
-        // Улетаем на страницу профиля (путь из корня)
-        window.location.href = 'src/html/profile.html';
+    // Улетаем на страницу профиля (путь из корня)
+    // Файл `profile.html` лежит в корне `frontend`, поэтому редиректим на 'profile.html'
+    window.location.href = 'profile.html';
     } else {
         alert('Access Denied: ' + result.message);
     }

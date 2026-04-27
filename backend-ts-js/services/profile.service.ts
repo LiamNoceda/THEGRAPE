@@ -1,4 +1,4 @@
-import { db } from "./db";
+import { db } from "./db.js";
 
 export const getUser = (id: string) => {
     if (!id) return null;
