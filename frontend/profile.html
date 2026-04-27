@@ -58,6 +58,34 @@
             </div>
         </div>
 
+        <!-- СОЗДАНИЕ СИГНАЛА -->
+    <div class="signal-core">
+
+        <h3>Release Signal</h3>
+
+        <textarea
+            id="signal-text"
+            class="space-area"
+            placeholder="What resonates inside you now?">
+        </textarea>
+
+        <div class="signal-row">
+
+            <select id="signal-type" class="space-input">
+                <option>Impulse</option>
+                <option>Signal</option>
+                <option>Resonance</option>
+                <option>Thought</option>
+            </select>
+
+            <button class="save-btn" onclick="createSignal()">
+                Transmit
+            </button>
+
+        </div>
+
+    </div>
+
         <!-- Лента сообщений/постов -->
         <div class="space-feed" id="feed">
             <!-- Посты будут генерироваться здесь -->

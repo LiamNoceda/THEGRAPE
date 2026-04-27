@@ -134,3 +134,160 @@
 input[type="number"]::-webkit-inner-spin-button {
     display: none; /* Прячем стрелочки у года */
 }
+
+
+/* =========================
+   SIGNAL CREATOR CONTAINER
+========================= */
+
+.signal-core {
+    grid-column: 1 / -1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    padding: 32px;
+    margin-bottom: 10px;
+
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 38px;
+
+    box-shadow: 0 0 25px rgba(255,255,255,0.02);
+}
+
+/* Заголовок */
+
+.signal-core h3 {
+    font-size: 0.85rem;
+    font-weight: 200;
+    letter-spacing: 0.35rem;
+    text-transform: uppercase;
+    opacity: 0.65;
+}
+
+/* Поле текста */
+
+#signal-text {
+    min-height: 100px;
+    resize: none;
+    line-height: 1.7;
+}
+
+/* Нижняя панель */
+
+.signal-row {
+    display: flex;
+    gap: 0px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Select */
+
+#signal-type {
+    min-width: 130px;
+    cursor: pointer;
+}
+
+/* Кнопка */
+
+.signal-row .save-btn {
+    min-width: 100px;
+}
+
+/* =========================
+   POSTS / SIGNALS FEED
+========================= */
+
+.space-feed {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Один сигнал */
+
+.space-post {
+    padding: 24px 26px;
+
+    background: rgba(255,255,255,0.015);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 24px;
+
+    transition: 0.3s ease;
+    animation: signalAppear 0.35s ease;
+}
+
+.space-post:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255,255,255,0.12);
+}
+
+/* Тип сигнала */
+
+.space-post h4 {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.18rem;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    opacity: 0.65;
+}
+
+/* Текст */
+
+.space-post p {
+    font-size: 0.96rem;
+    line-height: 1.7;
+    margin-bottom: 14px;
+    opacity: 0.95;
+    word-break: break-word;
+}
+
+/* Время */
+
+.space-post span {
+    font-size: 0.72rem;
+    opacity: 0.45;
+    letter-spacing: 0.08rem;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+    .signal-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #signal-type,
+    .signal-row .save-btn {
+        width: 100%;
+    }
+
+    .signal-core {
+        padding: 22px;
+        border-radius: 28px;
+    }
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes signalAppear {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

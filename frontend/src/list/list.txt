@@ -12,3 +12,30 @@ API-слой: Папка frontend/src/js/api/ с файлами-курьерам
 Связь: Скрипты подключаются как type="module".
 Текущий статус: Настроена авто-регистрация (если юзера нет в JSON — создаем, если есть — проверяем пароль). После входа данные сохраняются в localStorage.setItem('currentUser', username).
 Задача: Продолжить разработку страниц профиля, друзей и сообщений по этой модульной схеме.
+
+
+структура системы
+
+Grape/
+ ├── front/
+ │    ├── index.html
+ │    ├── profile.html
+ │    ├── messages.html
+ │    └── src/
+ │         ├── js/
+ │         ├── css/
+ │         └── assets/
+ │
+ ├── backend-ts-js/
+ │    ├── server.ts
+ │    ├── router.ts
+ │    ├── handlers/
+ │    │     ├── auth.ts (готово)
+ │    │     ├── profile.ts (сделаем)
+ │    │     ├── messages.ts (заготовка)
+ │    │     └── friends.ts (заготовка)
+ │    └── services/
+ │          ├── profile.service.ts
+ │          └── db.ts (future MySQL layer)
+
+ 
